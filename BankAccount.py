@@ -7,13 +7,13 @@ class BankAccount:
 
     def deposit(self, amount):
         self.balance += amount
-        print(f"Amount deposited: ${self.balance}")
+        print(f"\n Amount deposited: ${self.balance} \n")
 
     def withdraw(self, amount):
         self.balance -= amount
         if self.balance < 0:
             self.balance -= 10
-            print("Insufficient funds. Overdraft fee of $10 assessed.")
+            print("\n Insufficient funds. Overdraft fee of $10 assessed. \n")
 
     def get_balance(self):
         print(f"Current balance: {self.balance}")
@@ -24,11 +24,11 @@ class BankAccount:
         self.balance += interest
 
     def print_receipt(self):
-        safe_number = 0
-        for number in self._account_number:
-            safe_number = number[0:3] + "*"
+        obfuscation_string = "****"
+        safe_number = str(self._account_number)
+        safe_number = obfuscation_string + safe_number[4:]
         print(
-            f"{self._full_name} \n Account No: {safe_number} \n Routing No: {self._routing_number} \n Balance: ${self.balance}"
+            f"\n {self._full_name} \n Account No: {safe_number} \n Routing No: {self._routing_number} \n Balance: ${self.balance} \n",
         )
 
 
@@ -36,6 +36,13 @@ Jeff = BankAccount("Jeff Johns", 86753090, 212313414, 3025.33)
 Anita = BankAccount("Anita Hill", 63144822, 212313414, 121302.78)
 Molly = BankAccount("Molly Webb", 93146681, 212313414, 72803.65)
 
-print(Jeff)
-print(Anita)
-print(Molly)
+Jeff.deposit(312)
+Jeff.print_receipt()
+
+Anita.withdraw(6868)
+Anita.print_receipt()
+
+Anita.add_interest()
+Anita.print_receipt()
+
+Molly.get_balance()
