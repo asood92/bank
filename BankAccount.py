@@ -24,4 +24,6 @@ class BankAccount:
         self.balance += interest
 
     def print_receipt(self):
-        print(f"{self._full_name"}
+        for number in self._account_number:
+            safe_number = number[0:3] + '*'
+        print(f"{self._full_name} \n Account No: {safe_number}"}
