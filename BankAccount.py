@@ -10,10 +10,11 @@ class BankAccount:
         print(f"\n Amount deposited: ${self.balance} \n")
 
     def withdraw(self, amount):
-        self.balance -= amount
-        if self.balance < 0:
+        if (self.balance - amount) < 0:
             self.balance -= 10
             print("\n Insufficient funds. Overdraft fee of $10 assessed. \n")
+        else:
+            self.balance -= amount
 
     def get_balance(self):
         print(f"Current balance: {self.balance}")
@@ -33,16 +34,18 @@ class BankAccount:
 
 
 Jeff = BankAccount("Jeff Johns", 86753090, 212313414, 3025.33)
-Anita = BankAccount("Anita Hill", 63144822, 212313414, 121302.78)
-Molly = BankAccount("Molly Webb", 93146681, 212313414, 72803.65)
+Anita = BankAccount("Anita Jenkins", 63144822, 212313414, 1202.78)
+Molly = BankAccount("Molly Webb", 93146681, 212313414, 7203.65)
 
+Jeff.print_receipt()
 Jeff.deposit(312)
 Jeff.print_receipt()
 
-Anita.withdraw(6868)
+Anita.print_receipt()
+Anita.withdraw(1288)
 Anita.print_receipt()
 
-Anita.add_interest()
-Anita.print_receipt()
-
+Molly.print_receipt()
 Molly.get_balance()
+Molly.add_interest()
+Molly.print_receipt()
