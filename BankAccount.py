@@ -23,4 +23,5 @@ class BankAccount:
         interest = self.balance * 0.00083
         self.balance += interest
 
-    def
+    def print_receipt(self):
+        print(f"{self._full_name"}
