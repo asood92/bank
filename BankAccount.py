@@ -33,3 +33,9 @@ class BankAccount:
 
 
 Jeff = BankAccount("Jeff Johns", 86753090, 212313414, 3025.33)
+Anita = BankAccount("Anita Hill", 63144822, 212313414, 121302.78)
+Molly = BankAccount("Molly Webb", 93146681, 212313414, 72803.65)
+
+print(Jeff)
+print(Anita)
+print(Molly)
